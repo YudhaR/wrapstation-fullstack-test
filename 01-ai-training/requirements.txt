@@ -1,0 +1,9 @@
+ultralytics
+opencv-python
+numpy
+pillow
+matplotlib
+torch
+torchvision
+notebook
+ipykernel
