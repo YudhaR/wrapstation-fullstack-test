@@ -11,6 +11,8 @@ class ProductSeeder extends Seeder
         $data = [
             [
                 'product_name' => 'Mechanical Keyboard',
+                'image' => 'uploads/products/keyboard.jpg',
+                'description' => 'High quality mechanical keyboard for gaming and productivity',
                 'qty_in_stock' => 10,
                 'price' => 750000,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -18,6 +20,8 @@ class ProductSeeder extends Seeder
             ],
             [
                 'product_name' => 'Gaming Mouse',
+                'image' => 'uploads/products/mouse.jpg',
+                'description' => 'High quality gaming mouse for precise control and comfort',
                 'qty_in_stock' => 15,
                 'price' => 350000,
                 'created_at' => date('Y-m-d H:i:s'),

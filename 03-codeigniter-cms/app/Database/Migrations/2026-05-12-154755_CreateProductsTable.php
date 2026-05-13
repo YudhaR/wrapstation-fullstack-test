@@ -18,6 +18,15 @@ class CreateProductsTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 150,
             ],
+            'image' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'description' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
             'qty_in_stock' => [
                 'type' => 'INT',
                 'default' => 0,

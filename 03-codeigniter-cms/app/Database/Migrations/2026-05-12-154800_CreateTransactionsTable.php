@@ -29,6 +29,11 @@ class CreateTransactionsTable extends Migration
             'qty' => [
                 'type' => 'INT',
             ],
+            'status' => [
+                'type' => 'ENUM',
+                'constraint' => ['pending', 'paid', 'cancelled'],
+                'default' => 'pending',
+            ],
             'price' => [
                 'type' => 'DECIMAL',
                 'constraint' => '12,2',

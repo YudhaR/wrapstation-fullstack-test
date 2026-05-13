@@ -18,6 +18,10 @@ class CreateUsersTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
+            'address' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
