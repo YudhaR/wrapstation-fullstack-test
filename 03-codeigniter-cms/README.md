@@ -1,69 +1,257 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter CMS - Product Purchase System
 
-## What is CodeIgniter?
+Project ini merupakan implementasi Content Management System (CMS) sederhana menggunakan CodeIgniter 4 untuk mensimulasikan proses pembelian produk sesuai technical test dari Wrap Station Group.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Sistem ini mengimplementasikan dasar CRUD (Create, Read, Update, Delete), cart system, checkout, dan payment simulation  tanpa fitur authentication maupun authorization.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Features
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- Product CRUD (Create, Read, Update, Delete)
+- Dashboard Admin
+- Upload gambar produk
+- Shopping Cart System
+- Checkout System
+- Payment Simulation
+- Product Inventory Management
+- Database Migration & Seeder
+- Responsive UI menggunakan Tailwind CSS
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Installation & updates
+# Technologies
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- PHP 8+
+- CodeIgniter 4
+- MySQL
+- Tailwind CSS
+- phpMyAdmin
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+# Project Structure
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+```bash
+03-codeigniter-cms/
+│
+├── app/
+│   ├── Config/
+│   ├── Controllers/
+│   │   ├── admin/
+│   │   │   ├── DashboardController.php
+│   │   │   └── ProductController.php
+│   │   ├── CartController.php
+│   │   ├── CheckoutController.php
+│   │   ├── HistoryController.php
+│   │   ├── HomeController.php
+│   │   └── PaymentController.php
+│   │
+│   ├── Database/
+│   │   ├── Migrations/
+│   │   │   ├── 2026-05-12-154750_CreateUsersTable.php
+│   │   │   ├── 2026-05-12-154755_CreateProductsTable.php
+│   │   │   └── 2026-05-12-154800_CreateTransactionsTable.php
+│   │   └── Seeds/
+│   │       ├── DatabaseSeeder.php
+│   │       ├── ProductSeeder.php
+│   │       ├── TransactionSeeder.php
+│   │       └── UserSeeder.php
+│   │
+│   ├── Models/
+│   │   ├── ProductModel.php
+│   │   ├── TransactionModel.php
+│   │   └── UserModel.php
+│   │
+│   └── Views/
+│       ├── admin/
+│       ├── cart/
+│       ├── checkout/
+│       ├── history/
+│       ├── home/
+│       └── payment/
+│
+├── public/
+│   ├── assets/
+│   │   ├── css/
+│   │   └── images/
+│   │
+│   └── uploads/
+│       └── products/
+│
+├── writable/
+├── spark
+├── composer.json
+└── README.md
+```
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+# Database Migration
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Project ini menggunakan fitur Migration bawaan CodeIgniter 4.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Pastikan database sudah dibuat terlebih dahulu di MySQL/phpMyAdmin.
 
-## Repository Management
+Contoh:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```sql
+CREATE DATABASE db_wrapstation_cms;
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+# Setup Project
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+Masuk ke folder project:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+```bash
+cd 03-codeigniter-cms
+```
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+Install dependencies:
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+```bash
+composer install
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Copy file environment:
+
+```bash
+cp env .env
+```
+
+Atur konfigurasi database pada file:
+
+```bash
+.env
+```
+
+Contoh konfigurasi:
+
+```env
+database.default.hostname = localhost
+database.default.database = db_wrapstation_cms
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
+database.default.port = 3306
+```
+
+---
+
+# Tailwind CSS Setup
+
+Project ini menggunakan Tailwind CSS untuk styling UI.
+
+Install dependencies Tailwind CSS:
+
+```bash
+npm install
+```
+
+
+Tailwind CSS digunakan untuk:
+
+- Responsive Layout
+- Product Card Styling
+- Dashboard Admin
+- Form Styling
+- Button & Toast Notification
+- Shopping Cart Interface
+- Payment UI
+
+---
+
+# Run Migration
+
+Jalankan migration:
+
+```bash
+php spark migrate
+```
+
+Jalankan seeder:
+
+```bash
+php spark db:seed DatabaseSeeder
+```
+
+---
+
+# Run Project
+
+Jalankan server CodeIgniter:
+
+```bash
+php spark serve
+```
+
+Jalankan server CodeIgniter:
+
+```bash
+npm run dev
+```
+
+Akses project melalui browser:
+
+```bash
+http://localhost:8080
+```
+
+---
+
+# Admin Features
+
+Halaman admin digunakan untuk:
+
+- Menambahkan produk
+- Mengedit produk
+- Menghapus produk
+- Melihat inventory produk
+- Upload gambar produk
+
+Route admin:
+
+```bash
+/admin/products
+```
+
+---
+
+# User Features
+
+User dapat:
+
+- Melihat daftar produk
+- Menambahkan produk ke cart
+- Checkout produk
+- Simulasi pembayaran
+- Melihat history transaksi
+
+---
+
+# Product Images
+
+Gambar produk disimpan pada folder:
+
+```bash
+public/uploads/products/
+```
+
+---
+
+# Tailwind CSS
+
+File output Tailwind berada di:
+
+```bash
+public/assets/css/output.css
+```
+
+---
+
+# Notes
+
+- Project ini menggunakan localhost environment.
+- Authentication dan authorization tidak diimplementasikan sesuai requirement technical test.
+- Database migration dan seeder sudah disediakan.
+- UI dibuat responsive menggunakan Tailwind CSS.
