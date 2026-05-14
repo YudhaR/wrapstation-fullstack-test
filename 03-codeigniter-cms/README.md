@@ -4,6 +4,12 @@ Project ini merupakan implementasi Content Management System (CMS) sederhana men
 
 Sistem ini mengimplementasikan dasar CRUD (Create, Read, Update, Delete), cart system, checkout, dan payment simulation  tanpa fitur authentication maupun authorization.
 
+![Showcase Project 03](public/assets/images/showcase-03-1.png)
+
+![Showcase Project 03](public/assets/images/showcase-03-2.png)
+
+![Showcase Project 03](public/assets/images/showcase-03-3.png)
+
 ## Features
 
 - Product CRUD (Create, Read, Update, Delete)

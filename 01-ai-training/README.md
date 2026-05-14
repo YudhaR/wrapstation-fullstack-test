@@ -2,6 +2,8 @@
 
 Project ini merupakan implementasi Object Detection menggunakan YOLO (Ultralytics) untuk mendeteksi dan mengklasifikasikan berbagai jenis buah berdasarkan dataset yang telah disediakan oleh Wrap Station Group technical test.
 
+![Showcase Project 01](showcase-01.png)
+
 ## Features
 
 - Training model menggunakan YOLOv11
@@ -87,7 +89,7 @@ Pastikan struktur file seperti ini:
 │   └── valid/
 │       ├── images/
 │       └── labels/
-├── run/train/yolo11_fuits/weights/
+├── runs/train/yolo11_fuits/weights/
 │   └── best.pt
 ├── Fruits by YOLO.v1i.yolov8.zip
 ├── inference.py
@@ -107,6 +109,34 @@ Kemudian extract dataset ke dalam folder:
 dataset/
 ```
 
+## Run Inference
+
+Pastikan file model tersedia di:
+
+```bash
+01-ai-training/
+│
+├── runs/train/yolo11_fuits/weights/
+│   └── best.pt
+```
+
+Pastikan gambar test tersedia di:
+
+```bash
+01-ai-training/
+│
+├── dataset/
+│   └── test
+│       └── images
+│           └── *.jpg
+```
+
+Jalankan script inference:
+
+```bash
+python inference.py
+```
+
 ## Run Training
 
 Jalankan notebook training:
@@ -123,29 +153,3 @@ train.ipynb
 
 Lalu jalankan cell training satu per satu.
 
-## Run Inference
-
-Pastikan file model tersedia di:
-
-```bash
-01-ai-training/
-│
-├── run/train/yolo11_fuits/weights/
-│   └── best.pt
-```
-
-Pastikan gambar test tersedia di:
-
-```bash
-01-ai-training/
-│
-├── dataset/
-│   └── test
-│       └── *.jpg
-```
-
-Jalankan script inference:
-
-```bash
-python inference.py
-```

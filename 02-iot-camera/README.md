@@ -4,6 +4,14 @@ Project ini merupakan implementasi aplikasi Camera Control sederhana menggunakan
 
 Aplikasi dibangun menggunakan Python dan CustomTkinter sebagai GUI framework, dengan dukungan kontrol kamera menggunakan V4L2 (`v4l2-ctl`) pada Linux.
 
+![Showcase Project 02](output/showcase-02-1.png)
+
+> Dijalankan pada windows.
+
+![Showcase Project 02](output/showcase-02-2.gif)
+
+> Dijalankan pada linux.
+
 ## Features
 
 - Live Preview kamera secara realtime menggunakan OpenCV
