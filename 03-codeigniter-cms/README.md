@@ -42,7 +42,7 @@ Sistem ini mengimplementasikan dasar CRUD (Create, Read, Update, Delete), cart s
 ├── app/
 │   ├── Config/
 │   ├── Controllers/
-│   │   ├── admin/
+│   │   ├── Admin/
 │   │   │   ├── DashboardController.php
 │   │   │   └── ProductController.php
 │   │   ├── CartController.php
