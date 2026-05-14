@@ -6,13 +6,20 @@ class V4L2Control:
         self.device = device
 
     def set_control(self, name, value):
-        subprocess.run([
+        command = [
             "v4l2-ctl",
             "-d",
             self.device,
             "--set-ctrl",
-            f"{name}={value}"
-        ])
+            f"{name}={int(value)}"
+        ]
+
+        print("Running:", " ".join(command))
+
+        result = subprocess.run(command, capture_output=True, text=True)
+
+        if result.returncode != 0:
+            print(result.stderr.strip())
 
     def reset_default(self):
         self.set_control("brightness", 128)

@@ -31,8 +31,10 @@ class CameraControlUI(ctk.CTkFrame):
         self.bind_keys()
 
         if self.available_cameras:
-            self.camera.open(self.available_cameras[0])
-            self.set_status(f"Camera {self.available_cameras[0]} opened")
+            index = self.available_cameras[0]
+            self.camera.open(index)
+            self.v4l2.device = f"/dev/video{index}"
+            self.set_status(f"Camera {index} opened")
         else:
             self.set_status("No camera detected")
 
@@ -178,6 +180,7 @@ class CameraControlUI(ctk.CTkFrame):
         index = int(value.split(" ")[1])
 
         if self.camera.open(index):
+            self.v4l2.device = f"/dev/video{index}"
             self.set_status(f"Camera {index} opened")
         else:
             self.set_status(f"Failed to open Camera {index}")
