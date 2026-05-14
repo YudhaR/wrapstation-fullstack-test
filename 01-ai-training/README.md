@@ -28,6 +28,15 @@ https://www.kaggle.com/datasets/kapturovalexander/fruits-by-yolo-fruits-detectio
 01-ai-training/
 │
 ├── dataset/
+│   ├── test/
+│   │   ├── images/
+│   │   └── labels/
+│   ├── train/
+│   │   ├── images/
+│   │   └── labels/
+│   └── valid/
+│       ├── images/
+│       └── labels/
 ├── run/train/yolo11_fuits/weights/
 │   └── best.pt
 ├── Fruits by YOLO.v1i.yolov8.zip
@@ -69,6 +78,15 @@ Pastikan struktur file seperti ini:
 01-ai-training/
 │
 ├── dataset/
+│   ├── test/
+│   │   ├── images/
+│   │   └── labels/
+│   ├── train/
+│   │   ├── images/
+│   │   └── labels/
+│   └── valid/
+│       ├── images/
+│       └── labels/
 ├── run/train/yolo11_fuits/weights/
 │   └── best.pt
 ├── Fruits by YOLO.v1i.yolov8.zip
