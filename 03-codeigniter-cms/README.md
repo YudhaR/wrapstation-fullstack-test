@@ -99,6 +99,22 @@ CREATE DATABASE db_wrapstation_cms;
 
 ---
 
+---
+
+# Database Design
+
+Struktur database CMS dibuat menggunakan dbdiagram.io.
+
+Link database schema:
+
+https://dbdiagram.io/d/03-codeigniter-cms-6a033ce57a923b947290cee0
+
+Preview database schema:
+
+![Database Schema](public/assets/images/database-schema.png)
+
+---
+
 # Setup Project
 
 Masuk ke folder project:
