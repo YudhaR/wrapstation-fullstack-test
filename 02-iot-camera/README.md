@@ -6,20 +6,33 @@ Aplikasi dibangun menggunakan Python dan CustomTkinter sebagai GUI framework, de
 
 ## Features
 
-- Live Preview kamera secara realtime
+- Live Preview kamera secara realtime menggunakan OpenCV
 - Select Camera / Multiple Camera Support
 - Capture Image menggunakan tombol keyboard (`C`)
 - Burst Capture menggunakan tombol keyboard (`B`)
 - GUI menggunakan CustomTkinter
-- Kontrol parameter kamera menggunakan V4L2:
-  - Brightness
-  - Shutter / Exposure
-  - ISO / Gain
 - Support pengaturan resolusi kamera
 - Menyimpan hasil capture otomatis ke folder output
 - Cross-platform development:
-  - Windows untuk development UI
-  - Linux untuk implementasi V4L2
+  - Windows untuk development dan preview UI
+  - Linux untuk akses penuh kontrol kamera menggunakan V4L2
+- Dynamic Camera Control Detection pada Linux:
+  - Membaca control asli kamera menggunakan `v4l2-ctl --list-ctrls`
+  - Slider otomatis menyesuaikan nilai `min`, `max`, dan `value` dari kamera
+  - Slider akan dikunci jika control tidak tersedia atau tidak aktif
+  - Menampilkan keterangan `not available` jika setting tidak didukung kamera
+- Auto Manual Control pada Linux:
+  - Otomatis mengaktifkan manual exposure jika tersedia
+  - Otomatis menonaktifkan continuous autofocus jika tersedia
+  - Refresh ulang setting kamera saat user mengganti kamera
+- Kontrol parameter kamera menggunakan V4L2 pada Linux:
+  - Brightness
+  - Shutter / Exposure
+  - ISO / Gain
+  - Focus
+- Windows Mode:
+  - Slider control kamera dinonaktifkan
+  - Menampilkan keterangan bahwa control tidak tersedia di Windows
 
 ---
 
@@ -72,6 +85,15 @@ Buat virtual environment:
 ```bash
 python -m venv venv
 ```
+
+> Sesuaikan command dengan environment masing-masing (`python` atau `python3`).
+
+Pastikan Tkinter sudah terinstall. Jika belum, install dengan command berikut:
+
+```bash
+sudo apt-get install python3-tk
+```
+> Sesuaikan command dengan environment masing-masing (`python` atau `python3`).
 
 Aktifkan virtual environment:
 
@@ -161,8 +183,9 @@ Aplikasi mendukung kontrol kamera menggunakan V4L2 pada Linux:
 - Exposure / Shutter Speed
 - ISO / Gain
 
-Catatan:
-Setiap webcam memiliki capability berbeda-beda tergantung driver dan hardware kamera.
+Aplikasi akan membaca capability kamera secara otomatis. Setiap kamera dapat memiliki daftar control, nilai minimum, nilai maksimum, dan status aktif yang berbeda-beda.
+
+Jika sebuah control tidak tersedia atau sedang inactive, slider pada GUI akan otomatis dikunci dan menampilkan keterangan `not available`.
 
 ---
 
