@@ -40,13 +40,13 @@ wrapstation-fullstack-test/
 
 | Component | Specification |
 |---|---|
-| Operating System | Linux |
-| Processor | Lorem Ipsum |
-| RAM | Lorem Ipsum |
-| GPU | Lorem Ipsum |
-| Storage | Lorem Ipsum |
+| Operating System | Linux Ubuntu 24 |
+| Processor | Intel i9-12900K |
+| RAM | 32 GB |
+| GPU | RTX 3060 |
+| Storage | 1 TB SSD |
 | Camera Library | OpenCV + V4L2 |
-| Camera | Lorem Ipsum |
+| Camera | EYD 2K QHD |
 | GUI Framework | CustomTkinter |
 
 ---
@@ -123,14 +123,20 @@ Implementasi aplikasi Camera Control menggunakan OpenCV dan V4L2 untuk mengakses
 
 - Live Preview kamera realtime
 - Multiple Camera Support
-- Capture Image menggunakan keyboard
-- Burst Capture
+- Capture Image & Burst Capture
 - GUI menggunakan CustomTkinter
-- Pengaturan Brightness
-- Pengaturan Exposure / Shutter
-- Pengaturan ISO / Gain
+- Cross-platform support:
+  - Windows untuk preview dan development
+  - Linux dengan kontrol kamera penuh menggunakan V4L2
+- Dynamic camera control detection pada Linux
+- Auto manual exposure & autofocus handling
+- Kontrol kamera:
+  - Brightness
+  - Exposure / Shutter
+  - ISO / Gain
 - Pengaturan resolusi kamera
 - Auto save hasil capture
+- Windows mode dengan camera control disabled
 
 ## Technologies
 
